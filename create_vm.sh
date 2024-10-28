@@ -4,7 +4,7 @@
 VM_NAME="archlinux-vm"
 MEMORY="1024"
 CPUS="2"
-DISK_SIZE="10G"
+DISK_SIZE="30G"
 ISO_PATH="/var/lib/libvirt/images/archlinux-2024.10.01-x86_64.iso"
 
 # Créer un disque virtuel
