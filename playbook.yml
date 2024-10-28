@@ -1,0 +1,31 @@
+- name: Configure Arch Linux VM
+  hosts: archlinux
+  become: yes
+  tasks:
+    - name: Update all packages
+      pacman:
+        name: "*"
+        state: latest
+
+    - name: Install essential packages
+      pacman:
+        name:
+          - vim
+          - git
+          - sudo
+        state: present
+
+    - name: Create a new user
+      user:
+        name: myuser
+        shell: /bin/bash
+        groups: wheel
+        append: yes
+
+    - name: Set up sudo for the new user
+      lineinfile:
+        path: /etc/sudoers
+        state: present
+        regexp: '^%wheel ALL=\(ALL\) ALL'
+        line: '%wheel ALL=(ALL) ALL'
+        validate: 'visudo -cf %s'
