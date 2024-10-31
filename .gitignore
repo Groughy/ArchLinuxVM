@@ -1,1 +1,6 @@
 */vars.sh
+CentOs/ksfrominstall.ks.cfg
+.gitignore
+CentOs/test/centos9-ks.cfg
+CentOs/test/create_vm_test.sh
+CentOs/create_vm_quickCentOs.sh

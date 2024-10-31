@@ -13,9 +13,8 @@ virt-install \
   --vcpus ${CPUS} \
   --disk path=/var/lib/libvirt/images/${VM_NAME}.qcow2,format=qcow2 \
   --location ${ISO_PATH} \
-  --initrd-inject=/home/groughformation/Documents/ArchLinuxTest/CentOs/ks.cfg \
-  --extra-args="ks=file:/home/groughformation/Documents/ArchLinuxTest/CentOs/ks.cfg console=tty0 console=ttyS0,115200" \
-  --network network=default \
-  --graphics vnc \
+  --initrd-inject ks.cfg \
+  --extra-args "inst.ks=file:ks.cfg console=ttyS0,115200" \
+  --graphics none\
+  --os-variant rhel9.0 \
   --console pty,target_type=serial \
-  --boot cdrom,hd,menu=on
